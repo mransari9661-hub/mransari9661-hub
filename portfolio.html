@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MD Saddam Ansari | Digital Marketing Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --card: #1a1a26;
+    --accent: #e8c547;
+    --accent2: #ff6b35;
+    --text: #f0ede8;
+    --muted: #8a8799;
+    --border: #2a2a3a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    animation: fadeDown 0.8s ease both;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 7rem 5% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(232,197,71,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,107,53,0.05) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(232,197,71,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,197,71,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 760px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(232,197,71,0.1);
+    border: 1px solid rgba(232,197,71,0.25);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    margin-bottom: 0.3rem;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-role {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #b0adc0;
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.65s ease both;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.8s ease both;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0f;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s;
+    text-transform: uppercase;
+  }
+  .btn-primary:hover { background: #f0d060; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,197,71,0.3); }
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s;
+    text-transform: uppercase;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 5%;
+    display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem; }
+
+  /* SECTION */
+  section { padding: 6rem 5%; }
+  .section-tag {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .section-title span { color: var(--accent); }
+  .section-subtitle { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 540px; margin-bottom: 3.5rem; }
+
+  /* SKILLS */
+  #skills { background: var(--surface); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+  }
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem 1.5rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .skill-card:hover { transform: translateY(-4px); border-color: rgba(232,197,71,0.3); }
+  .skill-card:hover::before { transform: scaleX(1); }
+  .skill-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .skill-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.4rem; }
+  .skill-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .project-card:hover { transform: translateY(-5px); border-color: rgba(232,197,71,0.25); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .project-card:hover::after { transform: scaleX(1); }
+  .project-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(232,197,71,0.08);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .project-tag {
+    display: inline-block;
+    background: rgba(232,197,71,0.1);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+  .project-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem; line-height: 1.3; }
+  .project-metrics { display: flex; flex-direction: column; gap: 0.7rem; }
+  .metric {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    font-size: 0.88rem; color: #b0adc0; line-height: 1.5;
+  }
+  .metric::before {
+    content: '▸';
+    color: var(--accent);
+    font-size: 0.7rem;
+    margin-top: 0.22rem;
+    flex-shrink: 0;
+  }
+  .metric strong { color: var(--text); }
+
+  /* CERTIFICATIONS */
+  #certifications { background: var(--surface); }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+  .cert-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+    transition: all 0.3s;
+  }
+  .cert-card:hover { border-color: rgba(232,197,71,0.3); transform: translateX(4px); }
+  .cert-icon {
+    width: 44px; height: 44px;
+    background: rgba(232,197,71,0.1);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .cert-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .cert-org { font-size: 0.78rem; color: var(--muted); }
+
+  /* CONTACT */
+  #contact {
+    background: var(--bg);
+    text-align: center;
+  }
+  .contact-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .contact-cards {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+  .contact-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.4rem 2rem;
+    display: flex; align-items: center; gap: 1rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    min-width: 200px;
+  }
+  .contact-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .contact-icon { font-size: 1.4rem; }
+  .contact-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .contact-value { font-size: 0.9rem; font-weight: 600; }
+
+  /* FOOTER */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 1.8rem 5%;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    font-size: 0.82rem; color: var(--muted);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.1rem;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .stats-bar { gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">MS Ansari</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available for Opportunities</div>
+    <h1>MD Saddam<br/><span>Ansari</span></h1>
+    <p class="hero-role">Digital Marketing Manager</p>
+    <p class="hero-desc">
+      Passionate about helping businesses grow through data-driven marketing strategies. 
+      Specialized in SEO, Social Media, Content Marketing & Performance Marketing with 
+      a strong foundation in modern AI marketing tools.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-num">3x</div>
+    <div class="stat-label">ROAS Achieved</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">40%</div>
+    <div class="stat-label">Organic Traffic Growth</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">150%</div>
+    <div class="stat-label">Engagement Rate Growth</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">30%</div>
+    <div class="stat-label">CPL Reduction</div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">What I Do</div>
+  <h2 class="section-title">Core <span>Skills</span></h2>
+  <p class="section-subtitle">A well-rounded digital marketing toolkit built through certifications, workshops, and hands-on project experience.</p>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon">📱</div>
+      <div class="skill-name">Social Media Marketing</div>
+      <div class="skill-desc">Instagram, Facebook & LinkedIn strategy, content planning, community building & organic growth.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🔍</div>
+      <div class="skill-name">SEO & Google Ads</div>
+      <div class="skill-desc">Keyword research, on-page/off-page SEO, technical audits, Google Search & Display campaigns.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">✍️</div>
+      <div class="skill-name">Content Marketing</div>
+      <div class="skill-desc">Blog writing, copywriting, content calendars, and brand storytelling to drive engagement.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🎬</div>
+      <div class="skill-name">Video Editing & Canva</div>
+      <div class="skill-desc">Reels, short-form video content, brand creatives, and design assets using Canva & editing tools.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">Performance Marketing</div>
+      <div class="skill-desc">Meta Ads, Google Ads, A/B testing, campaign optimization, and ROI-focused ad strategies.</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🌐</div>
+      <div class="skill-name">WordPress & Elementor</div>
+      <div class="skill-desc">Landing page design, speed optimization, mobile-friendly UI/UX improvements.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag">Work & Results</div>
+  <h2 class="section-title">Featured <span>Projects</span></h2>
+  <p class="section-subtitle">Real campaigns and strategies with measurable results — from organic growth to paid performance.</p>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-num">01</div>
+      <div class="project-tag">SEO</div>
+      <div class="project-title">Organic Growth & Keyword Ranking Strategy</div>
+      <div class="project-metrics">
+        <div class="metric"><strong>40% Traffic Increase</strong> — Monthly organic traffic grown in 6 months</div>
+        <div class="metric"><strong>Top 3 Rankings</strong> — 10+ high-competition keywords ranked on Google</div>
+        <div class="metric"><strong>90+ Core Web Vitals</strong> — 50+ technical errors resolved via full site audit</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">02</div>
+      <div class="project-tag">Paid Ads</div>
+      <div class="project-title">Multi-Channel Lead Generation via Meta & Google Ads</div>
+      <div class="project-metrics">
+        <div class="metric"><strong>30% CPL Reduction</strong> — Cost Per Lead lowered without quality loss</div>
+        <div class="metric"><strong>5.1% Conversion Rate</strong> — Improved from 2.5% via A/B landing page tests</div>
+        <div class="metric"><strong>3x ROAS</strong> — ₹50,000/month budget managed with 3x return on ad spend</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">03</div>
+      <div class="project-tag">Social Media</div>
+      <div class="project-title">Brand Identity & Community Building</div>
+      <div class="project-metrics">
+        <div class="metric"><strong>150% Engagement Growth</strong> — Through revised content strategy</div>
+        <div class="metric"><strong>5,000+ Followers</strong> — Organic growth via Reels & viral content</div>
+        <div class="metric"><strong>20+ Monthly Leads</strong> — Organic inbound inquiries generated via social</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">04</div>
+      <div class="project-tag">Web / UX</div>
+      <div class="project-title">High-Converting Landing Page & UI/UX Optimization</div>
+      <div class="project-metrics">
+        <div class="metric"><strong>1.5s Load Time</strong> — WordPress site speed reduced from 4 seconds</div>
+        <div class="metric"><strong>20% Bounce Rate Drop</strong> — Mobile-friendly Elementor redesign</div>
+        <div class="metric"><strong>Better UX Scores</strong> — Core Web Vitals significantly improved post-audit</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-tag">Learning & Growth</div>
+  <h2 class="section-title">Certifications & <span>Training</span></h2>
+  <p class="section-subtitle">Industry certifications and workshops that build a strong digital marketing foundation.</p>
+  <div class="cert-grid">
+    <div class="cert-card reveal">
+      <div class="cert-icon">🏅</div>
+      <div><div class="cert-name">Google Digital Marketing</div><div class="cert-org">Google Skillshop</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">📘</div>
+      <div><div class="cert-name">Meta Blueprint – Facebook Ads</div><div class="cert-org">Meta</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">🎯</div>
+      <div><div class="cert-name">SEO Fundamentals</div><div class="cert-org">SEMrush Academy</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">🤖</div>
+      <div><div class="cert-name">AI Marketing Tools Workshop</div><div class="cert-org">Industry Workshop</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">📊</div>
+      <div><div class="cert-name">Google Analytics (GA4)</div><div class="cert-org">Google Skillshop</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">🌐</div>
+      <div><div class="cert-name">WordPress & Elementor</div><div class="cert-org">Practical Workshop</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper">
+    <div class="section-tag">Let's Connect</div>
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <p class="section-subtitle" style="margin: 0 auto 0.5rem;">Looking for opportunities to apply skills, gain real-world experience, and drive business growth through innovative digital marketing strategies.</p>
+    <div class="contact-cards">
+      <a href="tel:+916291399098" class="contact-card reveal">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+91 6291399098</div>
+        </div>
+      </a>
+      <a href="mailto:smansari188@gmail.com" class="contact-card reveal">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">smansari188@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/md-saddam-ansari-aa0a101a2/" target="_blank" class="contact-card reveal">
+        <div class="contact-icon">💼</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">MD Saddam Ansari</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MD Saddam Ansari</div>
+  <div>© 2025 · Digital Marketing Manager</div>
+  <div>Open to Work · India</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
